@@ -66,7 +66,31 @@ export default function TextForm(props) {
         }
     }
 
+    let handleCaClick = ()=>{
+        let newText = text.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+            if (+match === 0) return "";
+            return index === 0 ? match.toLowerCase() : match.toUpperCase();
+          });
+        setText(newText);
+    }
+
+
+    let handleCoppyClick = ()=>{
+        navigator.clipboard.writeText(text);
+    }
     
+    let handlekeClick = ()=>{
+        let newText = text.replace(/\s/g, '-')
+        setText(newText)
+    }
+
+    let handleSeClick = ()=>{
+        let newText = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g,function(x){
+            return x.toUpperCase()
+        });;
+        setText(newText);
+    }
+
   return (
     <>
     <div className='container'>
@@ -74,15 +98,19 @@ export default function TextForm(props) {
         <div className="mb-2">
             <textarea className="form-control" id="myBox" value={text} rows="8" onChange={handleOnChange}></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleReClick}>Remove white space</button>
+        <button className="btn btn-primary mx-1" onClick={handleSeClick} type='button'>Sentencecase</button>
+        <button className="btn btn-primary mx-1" onClick={handleUpClick} type='button'>Uppercase</button>
+        <button className="btn btn-primary mx-1" onClick={handleLoClick} type='button'>Lowercase</button>
+        <button className="btn btn-primary mx-1" onClick={handleCaClick} type='button'>Camelcase</button>
+        <button className="btn btn-primary mx-1" onClick={handlekeClick} type='button'>Kebab-case</button>
+        <button className="btn btn-primary mx-1" onClick={handleReClick} type='button'>Remove white space</button>
         <div className="btn-group mx-1">
-            <button className="btn btn-success " onClick={handleReciteClick}type="submit"  id="toggle">Speak</button>
-            <button className="btn btn-warning " onClick={handlePauseClick}type="submit"  id="pause">Pause</button>
+            <button className="btn btn-success " onClick={handleReciteClick} type="submit"  id="toggle">Speak</button>
+            <button className="btn btn-warning " onClick={handlePauseClick} type="submit"  id="pause">Pause</button>
         </div>
-        <button className="btn btn-danger ms-5" onClick={handleClearClick}>Clear Text</button>
-        <button className="btn btn-secondary mx-1">Undo</button>
+        <button className="btn btn-danger ms-5" onClick={handleClearClick} type='button'>Clear Text</button>
+        <button className="btn btn-secondary mx-1" type='button'>Undo</button>
+        <button className="btn btn-success mx-5" onClick={handleCoppyClick} type='button'>Coppy</button>
     </div>
 
     <div className="container my-4">

@@ -4,7 +4,8 @@ export default function About(props) {
   return (
     <div>
       <>
-        <h1>{props.heading}</h1>
+      <div className="container">
+        <h1 className='mt-5 mb-3'>{props.heading}</h1>
         <div className="accordion" id="accordionExample">
             <div className="accordion-item">
                 <h2 className="accordion-header">
@@ -42,7 +43,12 @@ export default function About(props) {
                 </div>
                 </div>
             </div>
-        </div>
+        </div> 
+            <div className="container">
+                <button type="button" className="btn btn-primary my-4">Enable Dark Mode</button>
+            </div>
+
+      </div>
       </>
     </div>
   )
