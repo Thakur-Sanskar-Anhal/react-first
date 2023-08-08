@@ -27,9 +27,14 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
 
-    let handleReClick = ()=>{
+    let handleWhClick = ()=>{
         let newText = text.replace(/\s/g, '')
         setText(newText)
+    }
+
+    let handleExClick = ()=>{
+        let newText = text.split(/[ ]+/)
+        setText(newText.join(" "))
     }
 
     let msg = new SpeechSynthesisUtterance(text);
@@ -99,18 +104,19 @@ export default function TextForm(props) {
             <textarea className="form-control" id="myBox" value={text} rows="8" onChange={handleOnChange}></textarea>
         </div>
         <button className="btn btn-primary mx-1" onClick={handleSeClick} type='button'>Sentencecase</button>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick} type='button'>Uppercase</button>
+        <button className="btn btn-primary " onClick={handleUpClick} type='button'>Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLoClick} type='button'>Lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleCaClick} type='button'>Camelcase</button>
+        <button className="btn btn-primary " onClick={handleCaClick} type='button'>Camelcase</button>
         <button className="btn btn-primary mx-1" onClick={handlekeClick} type='button'>Kebab-case</button>
-        <button className="btn btn-primary mx-1" onClick={handleReClick} type='button'>Remove white space</button>
-        <div className="btn-group mx-1">
+        <button className="btn btn-primary " onClick={handleWhClick} type='button'>White space</button>
+        <button className="btn btn-primary mx-1" onClick={handleExClick} type='button'>Extra space</button>
+        <div className="btn-group mx-5">
             <button className="btn btn-success " onClick={handleReciteClick} type="submit"  id="toggle">Speak</button>
             <button className="btn btn-warning " onClick={handlePauseClick} type="submit"  id="pause">Pause</button>
         </div>
-        <button className="btn btn-danger ms-5" onClick={handleClearClick} type='button'>Clear Text</button>
+        <button className="btn btn-danger ms-4" onClick={handleClearClick} type='button'>Clear Text</button>
         <button className="btn btn-secondary mx-1" type='button'>Undo</button>
-        <button className="btn btn-success mx-5" onClick={handleCoppyClick} type='button'>Coppy</button>
+        <button className="btn btn-success " onClick={handleCoppyClick} type='button'>Coppy</button>
     </div>
 
     <div className="container my-4">
