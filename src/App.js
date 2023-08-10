@@ -42,7 +42,7 @@ function App() {
   }
   return (
     <>
-    <Router basename="/react-first">
+    <Router basename="/tinker-text">
       <NavBar title="Text.tinker" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
       <div className="container " style={{position:'relative'}}>
         <Alerts alert= {alert}/>
