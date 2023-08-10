@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import logo from './favicon-32x32.png'
 
 export default function NavBar(props) {
   return (
     <nav className={`navbar navbar-expand bg-${props.mode==='dark'? 'dark':'warning'}`} data-bs-theme={props.mode}>
         <div className="container-fluid">
+          <img src={logo} alt="#" />
           <a className="navbar-brand" href="/"><b>{props.title}</b></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>

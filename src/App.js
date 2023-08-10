@@ -33,7 +33,7 @@ function App() {
   }
   return (
     <>
-      <NavBar title="TextUtils" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
+      <NavBar title="Tinker.text" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
       <div className="container " style={{position:'relative'}}>
         <Alerts alert= {alert}/>
       </div>
