@@ -1,8 +1,15 @@
-// import About from "./components/About";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
+import About from "./components/About";
 import TextForms from './components/TextForm'
 import Alerts from "./components/Alerts";
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -24,23 +31,29 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor=('#2B3036')
       showAlert("Dark mode has been enabled","dark")
+      document.title = 'Text.tinker- dark mode'
     }
     else {
       setMode('light')
       document.body.style.backgroundColor=('white')
       showAlert("Light mode has been enabled","warning")
+      document.title = 'Text.tinker- light mode'
     }
   }
   return (
     <>
-      <NavBar title="Tinker.text" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
+    <Router>
+      <NavBar title="Text.tinker" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
       <div className="container " style={{position:'relative'}}>
         <Alerts alert= {alert}/>
       </div>
       <div className="container my-4">
-        <TextForms heading="Enter the text to be analyzed" mode={mode} showAlert={showAlert}/>
-        {/* <About heading="Dekho bhai log"/> */}
+      <Routes>
+          <Route exact path="/" element={<TextForms heading="Enter the text to be analyzed" mode={mode} showAlert={showAlert}/>}/>
+          <Route exact path="/about" element={<About heading="About Tinker.text" mode={mode}/>}/>
+      </Routes>
       </div>
+    </Router>
     </>
   );
 }
