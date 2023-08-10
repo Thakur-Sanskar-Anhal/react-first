@@ -8,8 +8,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link
 } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
   }
   return (
     <>
-    <Router>
+    <Router style={{position:'relative'}}>
       <NavBar title="Text.tinker" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
       <div className="container " style={{position:'relative'}}>
         <Alerts alert= {alert}/>
@@ -50,9 +50,10 @@ function App() {
       <div className="container my-4">
       <Routes>
           <Route exact path="/" element={<TextForms heading="Enter the text to be analyzed" mode={mode} showAlert={showAlert}/>}/>
-          <Route exact path="/about" element={<About heading="About Tinker.text" mode={mode}/>}/>
+          <Route exact path="/about" element={<About heading="About Tinker.textn" mode={mode}/>}/>
       </Routes>
       </div>
+      <Footer mode={mode}/>
     </Router>
     </>
   );

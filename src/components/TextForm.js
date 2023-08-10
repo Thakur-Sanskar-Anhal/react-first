@@ -137,7 +137,7 @@ export default function TextForm(props) {
         <button className="btn btn-success my-1" onClick={handleCoppyClick} type='button'>Coppy</button>
     </div>
 
-    <div className="container my-4" style={{color: props.mode==='dark'?'white':'black'}}>
+    <div className="container my-4" style={{color: props.mode==='dark'?'white':'black', paddingBottom:'30px'}}>
         <h2>Your text summary</h2>
         <p>{text.trim() === '' ? 0 : text.match(/\S+/g).length} words and {text.replace(/\s+/g, '').length} characters</p>
         <p>{0.008 * text.split(" ").length} minutes to read this text</p>
