@@ -31,19 +31,17 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor=('#2B3036')
       showAlert("Dark mode has been enabled","dark")
-      document.title = 'Text.tinker- dark mode'
     }
     else {
       setMode('light')
       document.body.style.backgroundColor=('white')
       showAlert("Light mode has been enabled","warning")
-      document.title = 'Text.tinker- light mode'
     }
   }
   return (
     <>
     <Router basename="/tinker-text">
-      <NavBar title="Text.tinker" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
+      <NavBar title="Tinker.text" aboutText="About Texttils" mode={mode}  toggleMode={toggleMode}/>
       <div className="container " style={{position:'relative'}}>
         <Alerts alert= {alert}/>
       </div>
