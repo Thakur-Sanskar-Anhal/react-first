@@ -5,7 +5,7 @@ import logo from './favicon-32x32.png'
 
 export default function NavBar(props) {
   return (
-    <nav className={`navbar navbar-expand bg-${props.mode==='dark'? 'dark':'warning'}`} data-bs-theme={props.mode}>
+    <nav className={`navbar navbar-expand-lg bg-${props.mode==='dark'? 'dark':'warning'}`} data-bs-theme={props.mode}>
         <div className="container-fluid">
           <img src={logo} alt="#" />
           <Link className="navbar-brand" to="/"><b>{props.title}</b></Link>
@@ -25,7 +25,7 @@ export default function NavBar(props) {
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-success" type="submit">Search</button>
             </form>
-            <div className={`form-check form-switch mx-5 text-${props.mode==='dark'?'light':'dark'}`}>
+            <div className={`form-check form-switch mx-5 my-2 text-${props.mode==='dark'?'light':'dark'}`}>
               <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
               <label className="form-check-label " htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
             </div>

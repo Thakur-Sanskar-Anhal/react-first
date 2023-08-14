@@ -128,11 +128,11 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1 my-1" onClick={handlekeClick} type='button'>Kebab-case</button>
         <button className="btn btn-primary my-1" onClick={handleWhClick} type='button'>White space</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleExClick} type='button'>Extra space</button>
-        <div className="btn-group mx-5 my-1">
+        <div className="btn-group mx-3 my-1">
             <button className="btn btn-success " onClick={handleReciteClick} type="submit"  id="toggle">Speak</button>
             <button className="btn btn-warning " onClick={handlePauseClick} type="submit"  id="pause">Pause</button>
         </div>
-        <button className="btn btn-danger ms-4 my-1" onClick={handleClearClick} type='button'>Clear Text</button>
+        <button className="btn btn-danger  my-1" onClick={handleClearClick} type='button'>Clear Text</button>
         <button className="btn btn-secondary mx-1 my-1" type='button'>Undo</button>
         <button className="btn btn-success my-1" onClick={handleCoppyClick} type='button'>Coppy</button>
     </div>
@@ -140,9 +140,9 @@ export default function TextForm(props) {
     <div className="container my-4" style={{color: props.mode==='dark'?'white':'black', paddingBottom:'30px'}}>
         <h2>Your text summary</h2>
         <p>{text.trim() === '' ? 0 : text.match(/\S+/g).length} words and {text.replace(/\s+/g, '').length} characters</p>
-        <p>{0.008 * text.split(" ").length} minutes to read this text</p>
+        <p>{0.008*(text.trim() === '' ? 0 : text.match(/\S+/g).length)} minutes to read this text</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something in the textbox above to see the preview"}</p>
+        <p>{(text.trim() === '' ? 0 : text.match(/\S+/g).length)>0?text:"Enter something in the textbox above to see the preview"}</p>
     </div>
     </>
   )
